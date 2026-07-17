@@ -96,7 +96,7 @@ const defaultPlan = {
 
 const PlanContext = createContext(null)
 
-export function PlanProvider({ children }) {
+export function PlanProvider({ children, onReset }) {
   const [plan, setPlan] = useState(() => {
     try {
       const saved = localStorage.getItem('re-business-plan')
@@ -106,7 +106,6 @@ export function PlanProvider({ children }) {
     }
   })
   const [saved, setSaved] = useState(true)
-  const [resetKey, setResetKey] = useState(0)
 
   useEffect(() => {
     setSaved(false)
@@ -132,14 +131,12 @@ export function PlanProvider({ children }) {
   }, [])
 
   const reset = useCallback(() => {
-    // Deep copy so React always sees a new object and re-renders every field
-    setPlan(JSON.parse(JSON.stringify(defaultPlan)))
     localStorage.removeItem('re-business-plan')
-    setResetKey(k => k + 1)
-  }, [])
+    if (onReset) onReset()
+  }, [onReset])
 
   return (
-    <PlanContext.Provider value={{ plan, update, updateNested, save, saved, reset, setPlan, resetKey }}>
+    <PlanContext.Provider value={{ plan, update, updateNested, save, saved, reset, setPlan }}>
       {children}
     </PlanContext.Provider>
   )

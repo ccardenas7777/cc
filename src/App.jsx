@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { PlanProvider, usePlan } from './context/PlanContext'
+import { useState } from 'react'
+import { PlanProvider } from './context/PlanContext'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 import Company from './sections/Company'
@@ -25,13 +25,7 @@ const SECTIONS = {
 
 function BusinessPlanApp() {
   const [activeSection, setActiveSection] = useState('company')
-  const { resetKey } = usePlan()
   const Section = SECTIONS[activeSection]
-
-  // Navigate back to Company Overview whenever the plan is reset
-  useEffect(() => {
-    if (resetKey > 0) setActiveSection('company')
-  }, [resetKey])
 
   return (
     <div className="flex min-h-screen">
@@ -42,8 +36,8 @@ function BusinessPlanApp() {
         {/* Header — hidden on print */}
         <Header activeSection={activeSection} />
 
-        {/* Interactive section — key forces full remount on reset */}
-        <main key={resetKey} className="no-print flex-1 p-6 overflow-auto">
+        {/* Interactive section */}
+        <main className="no-print flex-1 p-6 overflow-auto">
           <Section />
         </main>
 
@@ -55,8 +49,9 @@ function BusinessPlanApp() {
 }
 
 export default function App() {
+  const [appKey, setAppKey] = useState(0)
   return (
-    <PlanProvider>
+    <PlanProvider key={appKey} onReset={() => setAppKey(k => k + 1)}>
       <BusinessPlanApp />
     </PlanProvider>
   )
