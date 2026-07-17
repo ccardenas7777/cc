@@ -71,11 +71,47 @@
   }
 }
 
+/* Hide print view on screen */
+.print-only {
+  display: none;
+}
+
 @media print {
+  /* Hide interactive app on print */
   .no-print {
     display: none !important;
   }
+
+  /* Show full print view */
+  .print-only {
+    display: block !important;
+  }
+
   body {
     background: white;
+    font-size: 11pt;
+    color: #111;
+  }
+
+  /* Each .print-page starts on a new page */
+  .print-page {
+    page-break-after: always;
+    padding: 0.5in;
+    min-height: 9in;
+    box-sizing: border-box;
+  }
+
+  .print-page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* Prevent orphaned headings / rows */
+  tr, li, p {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 0.5in;
+    size: letter portrait;
   }
 }

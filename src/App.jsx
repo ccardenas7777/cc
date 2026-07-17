@@ -10,6 +10,7 @@ import Financials from './sections/Financials'
 import SwotAnalysis from './sections/SwotAnalysis'
 import Goals from './sections/Goals'
 import ActionPlan from './sections/ActionPlan'
+import PrintView from './sections/PrintView'
 
 const SECTIONS = {
   company: Company,
@@ -28,12 +29,20 @@ function BusinessPlanApp() {
 
   return (
     <div className="flex min-h-screen">
+      {/* Sidebar — hidden on print */}
       <Sidebar active={activeSection} setActive={setActiveSection} />
+
       <div className="flex-1 flex flex-col min-w-0">
+        {/* Header — hidden on print */}
         <Header activeSection={activeSection} />
-        <main className="flex-1 p-6 overflow-auto">
+
+        {/* Interactive section — hidden on print */}
+        <main className="no-print flex-1 p-6 overflow-auto">
           <Section />
         </main>
+
+        {/* Full-plan print view — hidden on screen, shown on print */}
+        <PrintView />
       </div>
     </div>
   )

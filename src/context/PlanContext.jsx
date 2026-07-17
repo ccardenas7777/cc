@@ -131,10 +131,8 @@ export function PlanProvider({ children }) {
   }, [])
 
   const reset = useCallback(() => {
-    if (window.confirm('Reset to defaults? All changes will be lost.')) {
-      setPlan(defaultPlan)
-      localStorage.removeItem('re-business-plan')
-    }
+    setPlan(defaultPlan)
+    localStorage.removeItem('re-business-plan')
   }, [])
 
   return (
