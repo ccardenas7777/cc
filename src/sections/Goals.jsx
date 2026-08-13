@@ -49,7 +49,7 @@ export default function Goals() {
       </div>
 
       {/* Goal Cards */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {GOAL_PERIODS.slice(0, 3).map(period => (
           <GoalCard
             key={period.key}
@@ -61,7 +61,7 @@ export default function Goals() {
           />
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {GOAL_PERIODS.slice(3).map(period => (
           <GoalCard
             key={period.key}
@@ -77,7 +77,7 @@ export default function Goals() {
       {/* Goal Suggestions */}
       <div className="section-card">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2 mb-4">Goal Ideas by Business Line</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             {
               icon: '🏠',

@@ -15,7 +15,7 @@ export default function Company() {
         <p className="section-subtitle">Your business identity and core information</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Basic Info */}
         <div className="section-card space-y-4">
           <h2 className="text-lg font-bold text-navy-700 border-b pb-2">Business Identity</h2>
@@ -46,7 +46,7 @@ export default function Company() {
       {/* Mission & Vision */}
       <div className="section-card space-y-4">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2">Mission & Vision</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="field-label">Mission Statement</label>
             <p className="text-xs text-gray-500 mb-2">Why your business exists — your purpose</p>
@@ -75,7 +75,7 @@ export default function Company() {
       {/* Business Lines Overview */}
       <div className="section-card">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2 mb-4">Business Lines at a Glance</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             { icon: '🏠', title: 'Real Estate Investment', desc: 'Acquire, manage, and grow a portfolio of income-producing properties.' },
             { icon: '💼', title: 'Business Brokerage', desc: 'Facilitate the buying and selling of established businesses.' },

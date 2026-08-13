@@ -13,7 +13,7 @@ export default function MarketAnalysis() {
         <p className="section-subtitle">Research and define your target market, competition, and opportunities</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Target Market */}
         <div className="section-card space-y-4">
           <h2 className="text-lg font-bold text-navy-700 border-b pb-2">Target Market</h2>
@@ -63,7 +63,7 @@ export default function MarketAnalysis() {
       {/* Market Trends */}
       <div className="section-card space-y-4">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2">Market Trends & External Factors</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Textarea
             label="Market Trends & Tailwinds"
             value={m.trends}
@@ -84,7 +84,7 @@ export default function MarketAnalysis() {
       {/* Market Opportunity Scorecard */}
       <div className="section-card">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2 mb-4">Market Opportunity by Business Line</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             {
               icon: '🏠', title: 'Real Estate Investment',

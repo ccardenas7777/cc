@@ -57,7 +57,7 @@ export default function SwotAnalysis() {
       </div>
 
       {/* SWOT Grid */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {CATEGORIES.map(cat => (
           <div key={cat.key} className={`rounded-xl border-2 overflow-hidden ${cat.color}`}>
             <div className={`${cat.headerColor} text-white px-4 py-3 flex items-center gap-2`}>
@@ -101,7 +101,7 @@ export default function SwotAnalysis() {
       {/* Strategic Implications */}
       <div className="section-card">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2 mb-4">Strategic Implications</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             {
               title: '🟢 SO Strategies',

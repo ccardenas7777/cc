@@ -26,7 +26,7 @@ export default function ExecutiveSummary() {
         <div className="text-sm font-semibold text-gold-300 mb-3 uppercase tracking-wider">Business Snapshot</div>
         <div className="text-lg font-bold mb-1">{plan.company.name || 'My Real Estate Business'}</div>
         {plan.company.tagline && <div className="text-navy-200 text-sm mb-4 italic">"{plan.company.tagline}"</div>}
-        <div className="grid grid-cols-4 gap-4 mt-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           {[
             { label: 'Business Lines', value: '3' },
             { label: 'Projected Y1 Revenue', value: fmt(totalY1) },
@@ -81,7 +81,7 @@ export default function ExecutiveSummary() {
       {/* Revenue Preview */}
       <div className="section-card">
         <h2 className="text-lg font-bold text-navy-700 border-b pb-2 mb-4">3-Year Revenue Summary</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             { year: 'Year 1', rei: reiRev.year1, bb: bbRev.year1, reb: rebRev.year1 },
             { year: 'Year 2', rei: reiRev.year2, bb: bbRev.year2, reb: rebRev.year2 },

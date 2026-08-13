@@ -24,12 +24,12 @@ export default function BusinessLines() {
 
       {/* Tab Bar */}
       <div className="section-card !p-0 overflow-hidden">
-        <div className="flex border-b border-gray-200">
+        <div className="flex border-b border-gray-200 overflow-x-auto">
           {TABS.map(t => (
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className={`flex items-center gap-2 px-6 py-4 text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors whitespace-nowrap shrink-0 ${
                 tab === t.id ? 'tab-active bg-navy-50' : 'tab-inactive hover:bg-gray-50'
               }`}
             >
@@ -77,7 +77,7 @@ function ReiTab({ plan, update }) {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="space-y-4">
           <Field label="Business Description" textarea rows={3}
             value={rei.description}
@@ -183,7 +183,7 @@ function BbTab({ plan, update }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="space-y-4">
           <Field label="Business Description" textarea rows={3}
             value={bb.description}
@@ -253,7 +253,7 @@ function RebTab({ plan, update }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="space-y-4">
           <Field label="Business Description" textarea rows={3}
             value={reb.description}

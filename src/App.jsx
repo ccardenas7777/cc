@@ -25,23 +25,22 @@ const SECTIONS = {
 
 function BusinessPlanApp() {
   const [activeSection, setActiveSection] = useState('company')
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const Section = SECTIONS[activeSection]
 
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar — hidden on print */}
-      <Sidebar active={activeSection} setActive={setActiveSection} />
-
+      <Sidebar
+        active={activeSection}
+        setActive={setActiveSection}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Header — hidden on print */}
-        <Header activeSection={activeSection} />
-
-        {/* Interactive section */}
-        <main className="no-print flex-1 p-6 overflow-auto">
+        <Header activeSection={activeSection} onMenuClick={() => setSidebarOpen(v => !v)} />
+        <main className="no-print flex-1 p-4 md:p-6 overflow-auto">
           <Section />
         </main>
-
-        {/* Full-plan print view — hidden on screen, shown on print */}
         <PrintView />
       </div>
     </div>
